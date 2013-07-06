@@ -1,0 +1,3 @@
+./configure --with-cc=gcc --add-module=ngx_http_hello_world
+make
+sudo make install
