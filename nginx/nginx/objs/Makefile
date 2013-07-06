@@ -1,7 +1,7 @@
 
-CC =	cc
-CFLAGS =  -pipe  -O -W -Wall -Wpointer-arith -Wno-unused-parameter -Werror -g 
-CPP =	cc -E
+CC =	gcc
+CFLAGS =  -pipe  -O -W -Wall -Wpointer-arith -lstdc++ -Wno-unused-parameter -Werror -g 
+CPP =	gcc -E
 LINK =	$(CC)
 
 

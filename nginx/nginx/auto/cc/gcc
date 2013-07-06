@@ -50,7 +50,7 @@ esac
 
 #NGX_GCC_OPT="-O2"
 #NGX_GCC_OPT="-Os"
-NGX_GCC_OPT="-O"
+#NGX_GCC_OPT="-O"
 
 #CFLAGS="$CFLAGS -fomit-frame-pointer"
 
@@ -146,7 +146,7 @@ fi
 # -W requires at least -O
 CFLAGS="$CFLAGS ${NGX_GCC_OPT:--O} -W"
 
-CFLAGS="$CFLAGS -Wall -Wpointer-arith"
+CFLAGS="$CFLAGS -Wall -Wpointer-arith -lstdc++"
 #CFLAGS="$CFLAGS -Wconversion"
 #CFLAGS="$CFLAGS -Winline"
 #CFLAGS="$CFLAGS -Wmissing-prototypes"

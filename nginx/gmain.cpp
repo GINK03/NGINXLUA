@@ -3,9 +3,6 @@
 extern "C"{
 #include<string.h>
 #include<stdint.h>
-#include"ngx_config.h"
-#include<ngx_core.h>
-#include<ngx_http.h>
 };
 
 using namespace std;

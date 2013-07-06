@@ -47,7 +47,7 @@ int main() {
 }
 
 ----------
-cc -o objs/autotest objs/autotest.c
+gcc -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -125,7 +125,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -145,13 +145,13 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
 checking for crypt()
 
-/tmp/ccHf5tHG.o: In function `main':
+/tmp/ccHrVaTm.o: In function `main':
 autotest.c:(.text+0x19): undefined reference to `crypt'
 collect2: ld returned 1 exit status
 ----------
@@ -166,7 +166,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -191,7 +191,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -220,7 +220,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -242,7 +242,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -256,7 +256,7 @@ checking for statvfs()
 ----------------------------------------
 checking for dlopen()
 
-/tmp/ccq8DrPd.o: In function `main':
+/tmp/ccf2dj1R.o: In function `main':
 autotest.c:(.text+0x19): undefined reference to `dlopen'
 collect2: ld returned 1 exit status
 ----------
@@ -271,7 +271,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -300,7 +300,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -321,7 +321,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -403,7 +403,7 @@ checking for time_t size
 ----------------------------------------
 checking for setproctitle()
 
-/tmp/cc53Xbkj.o: In function `main':
+/tmp/ccK6RMm1.o: In function `main':
 autotest.c:(.text+0x11): undefined reference to `setproctitle'
 collect2: ld returned 1 exit status
 ----------
@@ -418,7 +418,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -460,7 +460,7 @@ checking for System V shared memory
 ----------------------------------------
 checking for POSIX semaphores
 
-/tmp/ccKOtoMi.o: In function `main':
+/tmp/ccW9aLuU.o: In function `main':
 autotest.c:(.text+0x2d): undefined reference to `sem_init'
 autotest.c:(.text+0x45): undefined reference to `sem_destroy'
 collect2: ld returned 1 exit status
@@ -478,7 +478,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -517,7 +517,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c
 ----------
 
 ----------------------------------------
@@ -561,7 +561,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lpcre
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lpcre
 ----------
 
 ----------------------------------------
@@ -581,7 +581,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lmd
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lmd
 ----------
 
 ----------------------------------------
@@ -601,7 +601,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lmd5
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lmd5
 ----------
 
 ----------------------------------------
@@ -625,7 +625,7 @@ int main() {
 }
 
 ----------
-cc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lmd
+gcc -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -lmd
 ----------
 
 ----------------------------------------

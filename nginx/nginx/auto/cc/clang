@@ -20,7 +20,7 @@ CC_TEST_FLAGS="-pipe"
 
 #NGX_CLANG_OPT="-O2"
 #NGX_CLANG_OPT="-Oz"
-NGX_CLANG_OPT="-O"
+#NGX_CLANG_OPT="-O"
 
 case $CPU in
     pentium)

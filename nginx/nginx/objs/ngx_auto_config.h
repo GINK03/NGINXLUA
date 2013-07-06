@@ -1,4 +1,4 @@
-#define NGX_CONFIGURE " --with-pcre --add-module=ngx_http_hello_world"
+#define NGX_CONFIGURE " --with-cc=gcc --add-module=ngx_http_hello_world"
 
 #ifndef NGX_COMPILER
 #define NGX_COMPILER  "gcc 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) "
