@@ -1,0 +1,4 @@
+./configure --with-cc=gcc --with-ld-opt="-L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules" --with-cc-opt="-I /usr/local/include" --with-pcre --add-module=ngx_http_bridge
+make 
+#sudo make install
+

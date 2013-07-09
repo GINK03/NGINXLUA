@@ -9,7 +9,7 @@ checking for gcc -pipe switch
 
 
 ----------------------------------------
-checking for --with-ld-opt="-L /usr/local/lib"
+checking for --with-ld-opt="-L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules"
 
 
 ----------------------------------------
@@ -129,7 +129,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -149,13 +149,13 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
 checking for crypt()
 
-/tmp/cclSyowI.o: In function `main':
+/tmp/ccqCOkzm.o: In function `main':
 autotest.c:(.text+0x19): undefined reference to `crypt'
 collect2: ld returned 1 exit status
 ----------
@@ -170,7 +170,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -195,7 +195,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -224,7 +224,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -246,7 +246,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -260,7 +260,7 @@ checking for statvfs()
 ----------------------------------------
 checking for dlopen()
 
-/tmp/ccNhkvfi.o: In function `main':
+/tmp/ccjtJvnV.o: In function `main':
 autotest.c:(.text+0x19): undefined reference to `dlopen'
 collect2: ld returned 1 exit status
 ----------
@@ -275,7 +275,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -304,7 +304,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -325,7 +325,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -407,7 +407,7 @@ checking for time_t size
 ----------------------------------------
 checking for setproctitle()
 
-/tmp/ccy43Q3t.o: In function `main':
+/tmp/ccSMKj79.o: In function `main':
 autotest.c:(.text+0x11): undefined reference to `setproctitle'
 collect2: ld returned 1 exit status
 ----------
@@ -422,7 +422,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -464,7 +464,7 @@ checking for System V shared memory
 ----------------------------------------
 checking for POSIX semaphores
 
-/tmp/ccMuNg4j.o: In function `main':
+/tmp/ccviaqf0.o: In function `main':
 autotest.c:(.text+0x2d): undefined reference to `sem_init'
 autotest.c:(.text+0x45): undefined reference to `sem_destroy'
 collect2: ld returned 1 exit status
@@ -482,7 +482,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -521,7 +521,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules
 ----------
 
 ----------------------------------------
@@ -565,7 +565,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib -lpcre
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules -lpcre
 ----------
 
 ----------------------------------------
@@ -585,7 +585,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib -lmd
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules -lmd
 ----------
 
 ----------------------------------------
@@ -605,7 +605,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib -lmd5
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules -lmd5
 ----------
 
 ----------------------------------------
@@ -629,7 +629,7 @@ int main() {
 }
 
 ----------
-gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L /usr/local/lib -lmd
+gcc -I /usr/local/include -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -o objs/autotest objs/autotest.c -L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules -lmd
 ----------
 
 ----------------------------------------
