@@ -2,6 +2,7 @@
 #include<sstream>
 //** プロトタイプ宣言
 extern "C"{
+#include"hiredis/hiredis.h"
 const char* cxxBridge(char* in);
 };
 

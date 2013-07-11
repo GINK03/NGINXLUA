@@ -1,0 +1,7 @@
+[hide@vm01]$ sudo make install
+mkdir -p /usr/local/include/hiredis /usr/local/lib
+cp -a hiredis.h async.h adapters /usr/local/include/hiredis
+cp -a libhiredis.so /usr/local/lib/libhiredis.so.0.10
+cd /usr/local/lib && ln -sf libhiredis.so.0.10 libhiredis.so.0
+cd /usr/local/lib && ln -sf libhiredis.so.0 libhiredis.so
+cp -a libhiredis.a /usr/local/lib
