@@ -1,7 +1,7 @@
 #define NGX_CONFIGURE " --with-cc=gcc --with-ld-opt='-L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules' --with-cc-opt='-I /usr/local/include' --with-pcre --add-module=ngx_http_bridge"
 
 #ifndef NGX_COMPILER
-#define NGX_COMPILER  "gcc 4.6.3 (Ubuntu/Linaro 4.6.3-1ubuntu5) "
+#define NGX_COMPILER  "gcc 4.6.4 (Ubuntu/Linaro 4.6.4-1ubuntu1~12.04) "
 #endif
 
 

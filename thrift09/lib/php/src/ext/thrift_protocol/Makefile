@@ -1,11 +1,11 @@
-srcdir = /home/juiz/NGINXLUA/thrift-0.9.0/lib/php/src/ext/thrift_protocol
-builddir = /home/juiz/NGINXLUA/thrift-0.9.0/lib/php/src/ext/thrift_protocol
-top_srcdir = /home/juiz/NGINXLUA/thrift-0.9.0/lib/php/src/ext/thrift_protocol
-top_builddir = /home/juiz/NGINXLUA/thrift-0.9.0/lib/php/src/ext/thrift_protocol
+srcdir = /home/juiz/NGINXLUA/thrift09/lib/php/src/ext/thrift_protocol
+builddir = /home/juiz/NGINXLUA/thrift09/lib/php/src/ext/thrift_protocol
+top_srcdir = /home/juiz/NGINXLUA/thrift09/lib/php/src/ext/thrift_protocol
+top_builddir = /home/juiz/NGINXLUA/thrift09/lib/php/src/ext/thrift_protocol
 EGREP = /bin/grep -E
 SED = /bin/sed
-CONFIGURE_COMMAND = './configure' '--disable-option-checking' '--prefix=/usr/local' '--cache-file=/dev/null' '--srcdir=.'
-CONFIGURE_OPTIONS = '--disable-option-checking' '--prefix=/usr/local' '--cache-file=/dev/null' '--srcdir=.'
+CONFIGURE_COMMAND = './configure' '--disable-option-checking' '--prefix=/usr/local'
+CONFIGURE_OPTIONS = '--disable-option-checking' '--prefix=/usr/local'
 SHLIB_SUFFIX_NAME = so
 SHLIB_DL_SUFFIX_NAME = so
 ZEND_EXT_TYPE = zend_extension
@@ -22,13 +22,13 @@ prefix = /usr
 exec_prefix = $(prefix)
 libdir = ${exec_prefix}/lib
 prefix = /usr
-phplibdir = /home/juiz/NGINXLUA/thrift-0.9.0/lib/php/src/ext/thrift_protocol/modules
+phplibdir = /home/juiz/NGINXLUA/thrift09/lib/php/src/ext/thrift_protocol/modules
 phpincludedir = /usr/include/php5
 CC = cc
 CFLAGS = -g -O2
 CFLAGS_CLEAN = $(CFLAGS)
 CPP = cc -E
-CPPFLAGS = -DHAVE_CONFIG_H
+CPPFLAGS = -DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H -DHAVE_CONFIG_H
 CXX = g++
 CXXFLAGS = -g -O2
 CXXFLAGS_CLEAN = $(CXXFLAGS)
@@ -162,8 +162,8 @@ distclean: clean
 
 .PHONY: all clean install distclean test
 .NOEXPORT:
-php_thrift_protocol.lo: /home/juiz/NGINXLUA/thrift-0.9.0/lib/php/src/ext/thrift_protocol/php_thrift_protocol.cpp
-	$(LIBTOOL) --mode=compile $(CXX)  -I. -I/home/juiz/NGINXLUA/thrift-0.9.0/lib/php/src/ext/thrift_protocol $(COMMON_FLAGS) $(CXXFLAGS_CLEAN) $(EXTRA_CXXFLAGS)  -c /home/juiz/NGINXLUA/thrift-0.9.0/lib/php/src/ext/thrift_protocol/php_thrift_protocol.cpp -o php_thrift_protocol.lo 
+php_thrift_protocol.lo: /home/juiz/NGINXLUA/thrift09/lib/php/src/ext/thrift_protocol/php_thrift_protocol.cpp
+	$(LIBTOOL) --mode=compile $(CXX)  -I. -I/home/juiz/NGINXLUA/thrift09/lib/php/src/ext/thrift_protocol $(COMMON_FLAGS) $(CXXFLAGS_CLEAN) $(EXTRA_CXXFLAGS)  -c /home/juiz/NGINXLUA/thrift09/lib/php/src/ext/thrift_protocol/php_thrift_protocol.cpp -o php_thrift_protocol.lo 
 $(phplibdir)/thrift_protocol.la: ./thrift_protocol.la
 	$(LIBTOOL) --mode=install cp ./thrift_protocol.la $(phplibdir)
 

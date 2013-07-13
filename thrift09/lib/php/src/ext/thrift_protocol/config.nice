@@ -2,10 +2,9 @@
 #
 # Created by configure
 
+CPPFLAGS='-DHAVE_INTTYPES_H -DHAVE_NETINET_IN_H' \
 LIBS='-lssl -lcrypto -lrt -lpthread ' \
 './configure' \
 '--disable-option-checking' \
 '--prefix=/usr/local' \
-'--cache-file=/dev/null' \
-'--srcdir=.' \
 "$@"
