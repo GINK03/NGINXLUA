@@ -1,5 +1,4 @@
 #include<string>
-#include<iostream>
 #include<db_cxx.h>
 #include<memory>
 #include<boost/shared_array.hpp>
@@ -15,23 +14,28 @@ class Berkley{
   private:
     DbEnv _env;
     Db*   _db;
-    const static int MAX_LEN = 65536;//16bit memory space max
+    const static int MAX_LEN = INT_MAX/8;//28bit memory space max
     inline char* _allocHeap(){
       char* res = (char*)malloc(MAX_LEN);
       ::memset(res, '\0', MAX_LEN);
       return res;
     };
-  public:
+    /* use as singleton */
     Berkley()
     :_env(0)
     {
       _env.set_error_stream(&std::cerr);
-      _env.open("./", DB_CREATE|DB_INIT_MPOOL,0);
+      _env.open("/tmp/", DB_CREATE|DB_INIT_MPOOL,0);
       _db = new Db(&_env, 0);
-      _db->open(nullptr, "nginx.dbm", nullptr, DB_BTREE,  DB_CREATE | DB_TRUNCATE, 0);
+      _db->open(nullptr, "/tmp/nginx.dbm", nullptr, DB_BTREE,  DB_CREATE|DB_TRUNCATE, 0);
     };
     ~Berkley(){
       delete _db;
+    };
+  public:
+    static Berkley* getInst(){
+      static Berkley inst;
+      return &inst;
     };
     void set(const char* skey, const char* sval){
       Dbt key((void*)skey, strlen(skey));
@@ -56,10 +60,10 @@ class Berkley{
 };//namespace C
 
 
-using namespace std;
+/*using namespace std;
 int32_t main(){
   C::Berkley* _db = new C::Berkley();
   _db->set("hage", "hikaru");
   cout << "nemui "<< _db->get("hage").get() << endl;
   delete _db;
-};
+};*/
