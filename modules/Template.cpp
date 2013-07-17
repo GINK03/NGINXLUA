@@ -46,6 +46,10 @@ class HTML{
     };//no create instance
     ~HTML(){
     };//auto dispose by kernel
+    str _getKeys(){
+      auto bval = _db->get("___DATEKEY___");
+      return str(bval.get());
+    };
   public:
     /* access only singleton-insterface */
     static HTML* getInst(){
@@ -62,6 +66,8 @@ class HTML{
          << funcCounter(1, kCOUNTER(), _db) 
          << "</br> it's too hot</br>"
          << input
+         << "</br>"
+         << "keys: " << _getKeys()
          << "</body></html>";
       std::cout << "[INPUT]" << input << std::endl;
       return ss.str();

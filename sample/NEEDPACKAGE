@@ -1,2 +1,4 @@
 #!/bin/sh
 sudo apt-get install python-redis
+cat "deb http://archive.ubuntu.com/ubuntu precise-backports main restricted universe" >> /etc/apt/sources.list
+sudo apt-get install leveldb-doc libleveldb-dev python2.7-leveldb

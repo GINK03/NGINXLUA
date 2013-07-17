@@ -29,7 +29,7 @@ def fFill(input):
   #[fPrint(s) for s in input('blockquote')]
 
 def flushBDB(key):#BDBはキーのみを保存する
-  db = bsddb.btopen('/tmp/nginx.dbm', 'c')
+  db = bsddb.btopen('/tmp/nginx.dbm', 'w')
   keys = []
   if db.has_key('___DATEKEY___') == False or db['___DATEKEY___'] == None:
     db['___DATEKEY___'] = key;
