@@ -1,20 +1,8 @@
 extern "C"{
 #include<leveldb/c.h>
 };
-#include<iostream>
-#include<string>
-#include<memory>
-
+#include"Common.hpp"
 namespace C{
-using std::string;
-class Dispose{
-  public:
-    Dispose(){};
-};
-class Unlock{
-  public:
-    Unlock(){};
-};
 class Level{
   private:
     leveldb_t* _db;
@@ -47,8 +35,9 @@ class Level{
       return string(_read, _read + _read_len);
     };
     ~Level(){
-      //not link 
-      //leveldb_close(_db);
+      /**
+       * if you want to close DB, use Unlock operator
+       * */ 
     };
     Level& operator~(){
       std::cerr << "a little chilly 1 " << std::endl;
@@ -67,12 +56,15 @@ class Level{
     };
 };
 };//namespace C
+#include<future>
 int main(){
+  //std::async(std::launch::async, C::Pooling);
+  
   std::shared_ptr<C::Level> level(new C::Level("leveldb.ldb"));
-  //level->put("atsui", "nemui");
+  level->put("atsui", "nemui");
   std::string res = level->read("atsui");
-  C::Level::Dispose(level);
-  C::Unlock(~(*level));
+  //C::Level::Dispose(level);
+  //C::Unlock(~(*level));
   std::cout << "leveldbtest: " << res << std::endl;
 };
 
