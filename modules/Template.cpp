@@ -3,7 +3,9 @@
 #include<vector>
 #include<boost/lexical_cast.hpp>
 /* TODO change prototype */
-#include"./Berkley.cpp"
+#include"Common.hpp"
+#include"Level.cpp"
+#include"Berkley.cpp"
 extern "C"{
 #include"hiredis/hiredis.h"
 };
@@ -22,33 +24,29 @@ using str = std::string;
 using vecstr = std::vector<std::string>;
 using sstr  = std::stringstream;
 using boost::lexical_cast;
-constexpr auto funcCounter = [](int32_t i, char* key, Berkley* db){
-  static int32_t k = 0; ++k;
-  static std::vector<str> vs = {"start!!!:"};
-  auto bval = db->get(key);
-  //return str("cannnot access BerkeleyDB1!");
-  if(str(bval.get()) == "F"){
-    db->set(key, lexical_cast<str>(k).c_str());
-    return str("cannnot access BerkeleyDB!");
-  };
-  str regist = str("BerkleyDB counter:") + str(bval.get());
-  db->set(key, lexical_cast<str>(k).c_str());
-  vs.push_back(regist);
-  auto endit = vs.end();
-  return *(endit - 1);
+constexpr auto funcCounter = [](int32_t i, char* key, Level* db){
+  static int32_t k = 0;
+  auto bval = db->read(key);
+  db->put(key, lexical_cast<str>(k).c_str()); ++k;
+  str regist = str("LevelDB counter: ") + bval;
+  return regist;
 };
 class HTML{
   private:
-    Berkley* _db;
+    Berkley* _bdb;
+    Level*  _ldb;
     char* kCOUNTER(){return "___counter___";};
-    HTML(){
-      _db = Berkley::getInst();
+    HTML()
+    :_ldb(new Level("/var/level.ldb")),
+     _bdb(new Berkley())
+    {
     };//no create instance
     ~HTML(){
+      Unlock(~(*_ldb));//unlock leveldb
     };//auto dispose by kernel
     str _getKeys(){
-      auto bval = _db->get("___DATEKEY___");
-      return str(bval.get());
+      auto bval = _ldb->read("___DATEKEY___");
+      return bval;
     };
   public:
     /* access only singleton-insterface */
@@ -63,7 +61,7 @@ class HTML{
       };
       sstr ss;
       ss << "<html><head></head><body>Wellcome to C++11 world</br>" 
-         << funcCounter(1, kCOUNTER(), _db) 
+         << funcCounter(1, kCOUNTER(), _ldb) 
          << "</br> it's too hot</br>"
          << input
          << "</br>"

@@ -22,16 +22,17 @@ class Level{
     {
       leveldb_options_set_create_if_missing(_options, 1);
       _db = leveldb_open(_options, _dbname.c_str(), &_err);
-      if(_err != nullptr){/*cerr << "open fail:" << _err << endl;*/};
+      if(_err != nullptr){L::Logger("open fail:", _err); };
     };
     bool put(const string& key, const string& val){
       leveldb_put(_db, _woptions, key.c_str(), key.length(), val.c_str(), val.length(), &_err);
-      if(_err != nullptr){/*cerr << "write fail:" << _err << endl;*/ return false;};
+      if(_err != nullptr){cerr << "write fail:" << _err << " : " << key << " : " << val << endl; return false;};
       return true;
     };
     string read(const string& key){
+      _err = nullptr;
       _read = leveldb_get(_db, _roptions, key.c_str(), key.length(), &_read_len, &_err);
-      if(_err != nullptr){/*cerr << "get fail:" << _err << endl;*/ return "";};
+      if(_err != nullptr){cerr << "get fail:" << _err << " : " << key <<  endl; return "F";};
       return string(_read, _read + _read_len);
     };
     ~Level(){
@@ -40,11 +41,11 @@ class Level{
        * */ 
     };
     Level& operator~(){
-      std::cerr << "a little chilly 1 " << std::endl;
+      L::Logger("a little chilly 1 ");
       return *this;
     };
     operator Unlock(){
-      std::cerr << "a little chilly 2 " << std::endl;
+      L::Logger("a little chilly 2 ");
       leveldb_close(_db);
     };
     /* 特殊機能のDBのデストロイ */
@@ -52,21 +53,23 @@ class Level{
     template<class LEVEL>
     static bool Dispose(LEVEL level){
       leveldb_destroy_db(level->_options, level->_dbname.c_str(), &(level->_err));
-      if(level->_err != nullptr){std::cerr << "destroy fail:" << level->_err << std::endl;};
+      if(level->_err != nullptr){L::Logger("destroy fail:", level->_err);};
     };
 };
 };//namespace C
-#include<future>
+/* * NOTE 
+   * なんかasyncとleveldbの相性悪すぎわろた TODO 原因究明
+   * */
+/*#include<future>
 int main(){
   //std::async(std::launch::async, C::Pooling);
-  
   std::shared_ptr<C::Level> level(new C::Level("leveldb.ldb"));
   level->put("atsui", "nemui");
   std::string res = level->read("atsui");
   //C::Level::Dispose(level);
   //C::Unlock(~(*level));
-  std::cout << "leveldbtest: " << res << std::endl;
-};
+  C::L::Logger("leveldbtest: ", res);
+};*/
 
 
 
