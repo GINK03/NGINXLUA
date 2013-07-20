@@ -9,7 +9,7 @@
 extern "C"{
 #include"hiredis/hiredis.h"
 };
-//** プロトタイプ宣言
+//** prototype */
 typedef struct{
   size_t len;
   u_char *data;
@@ -52,15 +52,15 @@ class HTML{
     };
   public:
     /* access only singleton-insterface */
-    static HTML* getInst(){
+    static HTML& getInst(){
       static HTML inst;
-      return &inst;
+      return inst;
     };
-    str Header(unsigned char* in){
+    str Header(ngx_str_t in){
       str input("");
-      if(in != nullptr){
-        input = lexical_cast<str>(in);
-      };
+      input = lexical_cast<str>(in.data);
+      input = input.substr(0, in.len);
+      
       sstr ss;
       ss << "<html><head></head><body>Wellcome to C++11 world</br>" 
          << funcCounter(1, kCOUNTER(), _ldb) 
@@ -76,5 +76,5 @@ class HTML{
 };//namespace
 
 const char* cxxBridge(ngx_str_t in){
-  return C::HTML::getInst()->Header(in.data).c_str();
+  return C::HTML::getInst().Header(in).c_str();
 };
