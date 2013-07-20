@@ -20,14 +20,15 @@ class Berkley{
       ::memset(res, '\0', MAX_LEN);
       return res;
     };
+    string _dbname;
   public:
-    Berkley()
-    :_env(0)
+    Berkley(const string& dbname)
+    :_env(0), _dbname(dbname)
     {
       _env.set_error_stream(&std::cerr);
       _env.open("/tmp/", DB_CREATE|DB_INIT_MPOOL,0);
       _db = new Db(&_env, 0);
-      _db->open(nullptr, "/var/berkley.dbm", nullptr, DB_BTREE,  DB_CREATE|DB_TRUNCATE, 0);
+      _db->open(nullptr, _dbname.c_str(), nullptr, DB_BTREE,  DB_CREATE|DB_TRUNCATE, 0);
     };
     ~Berkley(){
       delete _db;

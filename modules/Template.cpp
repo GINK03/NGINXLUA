@@ -26,9 +26,11 @@ using sstr  = std::stringstream;
 using boost::lexical_cast;
 constexpr auto funcCounter = [](int32_t i, char* key, Level* db){
   static int32_t k = 0;
-  auto bval = db->read(key);
-  db->put(key, lexical_cast<str>(k).c_str()); ++k;
-  str regist = str("LevelDB counter: ") + bval;
+  auto val = db->read(key);
+  if(val != "F"){k = std::atoi(val.c_str());++k;};
+  auto new_key = lexical_cast<str>(k);
+  db->put(key, new_key);
+  str regist = str("LevelDB counter: ") + new_key;
   return regist;
 };
 class HTML{
@@ -38,15 +40,15 @@ class HTML{
     char* kCOUNTER(){return "___counter___";};
     HTML()
     :_ldb(new Level("/var/level.ldb")),
-     _bdb(new Berkley())
+     _bdb(new Berkley("/var/berkley.bdb"))
     {
     };//no create instance
     ~HTML(){
       Unlock(~(*_ldb));//unlock leveldb
     };//auto dispose by kernel
     str _getKeys(){
-      auto bval = _ldb->read("___DATEKEY___");
-      return bval;
+      auto val = _ldb->read("___DATEKEY___");
+      return val;
     };
   public:
     /* access only singleton-insterface */
