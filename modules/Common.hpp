@@ -33,9 +33,9 @@ void static Logger(const T& t){
 };
 template<class T, class... Tx>
 void static Logger(const T& t, const Tx&... tx){
-  if(t != nullptr){  
+  //if(t != nullptr){  
     logline_ += string(t);
-  };
+  //};
   Logger(tx...);
 };
 };//end namespace L

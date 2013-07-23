@@ -26,13 +26,19 @@ class Level{
     };
     bool put(const string& key, const string& val){
       leveldb_put(_db, _woptions, key.c_str(), key.length(), val.c_str(), val.length(), &_err);
-      if(_err != nullptr){cerr << "write fail:" << _err << " : " << key << " : " << val << endl; return false;};
+      if(_err != nullptr){
+        L::Logger("write fail:", _err ," : ", key , " : " , val); 
+        return false;
+      };
       return true;
     };
     string read(const string& key){
       _err = nullptr;
       _read = leveldb_get(_db, _roptions, key.c_str(), key.length(), &_read_len, &_err);
-      if(_err != nullptr){cerr << "get fail:" << _err << " : " << key <<  endl; return "F";};
+      if(_err != nullptr){
+        L::Logger("get fail:", _err, " : ", key); 
+        return "F";
+      };
       return string(_read, _read + _read_len);
     };
     ~Level(){

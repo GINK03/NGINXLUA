@@ -207,7 +207,7 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_upstream_ip_hash_module.o \
 	objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
 	objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
-	objs/addon/ngx_http_bridge/ngx_http_bridge_module.o \
+	objs/addon/ngx_http_bridge_/ngx_http_bridge_module.o \
 	objs/ngx_modules.o
 
 	$(LINK) -o objs/nginx \
@@ -318,7 +318,7 @@ objs/nginx:	objs/src/core/nginx.o \
 	objs/src/http/modules/ngx_http_upstream_ip_hash_module.o \
 	objs/src/http/modules/ngx_http_upstream_least_conn_module.o \
 	objs/src/http/modules/ngx_http_upstream_keepalive_module.o \
-	objs/addon/ngx_http_bridge/ngx_http_bridge_module.o \
+	objs/addon/ngx_http_bridge_/ngx_http_bridge_module.o \
 	objs/ngx_modules.o \
 	-L/home/juiz/NGINXLUA/modules -lmodule -Wl,-rpath,/home/juiz/NGINXLUA/modules -lpthread -lcrypt -lpcre -lcrypto -lcrypto -lz
 	
@@ -1080,11 +1080,11 @@ objs/src/http/modules/ngx_http_upstream_keepalive_module.o:	$(CORE_DEPS) $(HTTP_
 		src/http/modules/ngx_http_upstream_keepalive_module.c
 
 
-objs/addon/ngx_http_bridge/ngx_http_bridge_module.o:	$(ADDON_DEPS) \
-	ngx_http_bridge/ngx_http_bridge_module.c
+objs/addon/ngx_http_bridge_/ngx_http_bridge_module.o:	$(ADDON_DEPS) \
+	ngx_http_bridge_/ngx_http_bridge_module.c
 	$(CC) -c $(CFLAGS)  $(ALL_INCS) \
-		-o objs/addon/ngx_http_bridge/ngx_http_bridge_module.o \
-		ngx_http_bridge/ngx_http_bridge_module.c
+		-o objs/addon/ngx_http_bridge_/ngx_http_bridge_module.o \
+		ngx_http_bridge_/ngx_http_bridge_module.c
 
 
 manpage:	objs/nginx.8
