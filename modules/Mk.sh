@@ -11,6 +11,7 @@ g++-4.8 -std=c++11 -fPIC -shared -fpermissive \
 g++-4.8 -std=c++11 -fPIC -fpermissive \
   Template.cpp Berkley.cpp Level.cpp ../tests/main.cpp \
   -I/usr/include -I../leveldb_1.12.0/include \
-  -L/usr/lib/i386-linux-gnu/ -ldb_cxx-5.1 \
+  -I/usr/include/lua5.1 \
+  -L/usr/lib/i386-linux-gnu/ -ldb_cxx-5.1 -llua5.1 \
   -L$PWD../leveldb-1.12.0 -lleveldb -Wl,-rpath,$PWD../leveldb-1.12.0 \
   -o a.o 
